@@ -2,12 +2,14 @@ import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patc
 import { CarsService } from './cars.service';
 import { CreateCarDto } from './dto/create-car.dto';
 import { UpdateCarDto } from './dto/update-car.dto';
+import { Car } from './interfaces/car.interface';
 
 
 
 @Controller('cars')
 @UsePipes( ValidationPipe )
 export class CarsController {
+    cars: Car[];
     
     constructor(
         private readonly carsService:CarsService
@@ -45,6 +47,10 @@ export class CarsController {
         return this.carsService.delete(id);
         
     } 
+
+    fillCarsWithSeedData( cars: Car[] ) {
+        this.cars = cars;
+    }
 
 
 

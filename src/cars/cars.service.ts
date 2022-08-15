@@ -77,5 +77,8 @@ delete( id: string){
     
 
 };
+fillCarsWithSeedData( cars: Car[] ) {
+    this.cars = cars;
 
+};
 }
